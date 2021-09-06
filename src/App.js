@@ -5,6 +5,12 @@ import styled from 'styled-components'
 import Current from './Current'
 import Forecast from './Forecast'
 
+import AppBar from '@material-ui/core/AppBar'
+import Toolbar from '@material-ui/core/Toolbar'
+import InputBase from '@material-ui/core/InputBase'
+import Typography from '@material-ui/core/Typography'
+
+//import SearchIcon from '@material-ui/icons/Search';
 
 const App = () => {
 
@@ -16,9 +22,8 @@ const App = () => {
   const [isLoading, setLoading] = useState(true);
 
   useEffect(() => {
-    axios.get(`${baseURL}current.json?key=${key}&q=${searchValue}&aqi=no`).then((response) => {
+    axios.get(`${baseURL}forecast.json?key=${key}&q=${searchValue}&days=3&aqi=no&alerts=no`).then((response) => {
       setWeather(response.data)
-      console.log(weather)
       setLoading(false)
     })
   }, [searchValue, key])
@@ -26,6 +31,7 @@ const App = () => {
   const getSearchValue = (event) => {
     if (event.key === 'Enter') {
       setSearchValue(event.target.value)
+      event.target.value = ''
     }
   }
 
@@ -35,11 +41,16 @@ const App = () => {
 
   return (
     <Container>
-      <Search>
-        <SearchBar type="text" placeholder="Search cities" onKeyDown={getSearchValue}></SearchBar>
-      </Search>
+      <AppBar position="static">
+        <NavBar>
+          <Typography variant="h6">Weather</Typography>
+          <Search>
+            <Input type="text" placeholder="Search" autoFocus onKeyDown={getSearchValue} />
+          </Search>
+        </NavBar>
+      </AppBar>
       <Current weather={weather} />
-      <Forecast />
+      <Forecast forecast={weather.forecast.forecastday} />
     </Container>
   );
 }
@@ -50,24 +61,24 @@ const Container = styled.div`
   background-color: #102A43;
 `
 
-const Search = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 60px;
+const NavBar = styled(Toolbar)`
+  color: #BCCCDC;
+  background-color: #334E68;
 `
 
-const SearchBar = styled.input`
-  border-radius: 30px;
-  border: 0;
-  padding-left: 20px;
-  margin: 10px;
-  height: 50%;
-  width: 100%;
-  font-size: 20px;
-  color: black;
-  background-color: #FDFCDC;
-  outline-width: 0;
+const Search = styled.div`
+  margin-left: 12px;
+  position: relative;
+  border-radius: 6px;
 `
+
+const Input = styled(InputBase)`
+  && {
+    padding-left: 12px;
+    border-radius: 6px;
+    color: #D9E2EC;
+    background-color: #486581;
+  }
+  `
 
 export default App;
