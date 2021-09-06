@@ -10,8 +10,6 @@ import Toolbar from '@material-ui/core/Toolbar'
 import InputBase from '@material-ui/core/InputBase'
 import Typography from '@material-ui/core/Typography'
 
-//import SearchIcon from '@material-ui/icons/Search';
-
 const App = () => {
 
   var key = 'b075c49533634e1894f23737210509'
@@ -25,6 +23,7 @@ const App = () => {
     axios.get(`${baseURL}forecast.json?key=${key}&q=${searchValue}&days=3&aqi=no&alerts=no`).then((response) => {
       setWeather(response.data)
       setLoading(false)
+      console.log(response.data)
     })
   }, [searchValue, key])
 
@@ -79,6 +78,6 @@ const Input = styled(InputBase)`
     color: #D9E2EC;
     background-color: #486581;
   }
-  `
+`
 
 export default App;

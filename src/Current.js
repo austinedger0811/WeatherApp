@@ -21,7 +21,7 @@ const Current = (props) => {
 				</Header>
 				<Weather>
 					<Typography variant='h5'> {props.weather.current.condition.text} </Typography>
-					<Typography variant='h2'> {props.weather.current.temp_f} </Typography>
+					<Typography variant='h2'> {props.weather.current.temp_f}&deg;</Typography>
 				</Weather>
 				<Location>
 					<Typography variant='body1'> {props.weather.location.name}, {props.weather.location.region}</Typography>
