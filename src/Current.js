@@ -16,7 +16,7 @@ const Current = (props) => {
 		<Container>
 			<CardContent>
 				<Header>
-					<Typography variant='h6'>Today</Typography>
+					<Typography variant='h6'>Currently</Typography>
 					<Typography variant='h6'> {formatDate(props.weather.location.localtime)} </Typography>
 				</Header>
 				<Weather>

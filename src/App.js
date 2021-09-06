@@ -13,7 +13,7 @@ import Typography from '@material-ui/core/Typography'
 const App = () => {
 
   var key = 'b075c49533634e1894f23737210509'
-  const baseURL = 'http://api.weatherapi.com/v1/'
+  const baseURL = 'https://api.weatherapi.com/v1/'
 
   const [searchValue, setSearchValue] = useState('New York')
   const [weather, setWeather] = useState(null)
@@ -42,7 +42,6 @@ const App = () => {
     <Container>
       <AppBar position="static">
         <NavBar>
-          <Typography variant="h6">Weather</Typography>
           <Search>
             <Input type="text" placeholder="Search" fullWidth autoFocus onKeyDown={getSearchValue} />
           </Search>
@@ -61,13 +60,14 @@ const Container = styled.div`
 `
 
 const NavBar = styled(Toolbar)`
-    color: #BCCCDC;
-    background-color: #334E68;
+  color: #BCCCDC;
+  background-color: #334E68;
 `
 
 const Search = styled.div`
   width: 100%;
-  margin-left: 24px;
+  margin-left: 9%;
+  margin-right:9%;
   border-radius: 6px;
 `
 
