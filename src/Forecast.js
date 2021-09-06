@@ -27,9 +27,9 @@ const Forecast = (props) => {
 					<TableHead>
 						<TableRow>
 							<StyledTableCellHeader>Day</StyledTableCellHeader>
-							<StyledTableCellHeader align="center">Summary</StyledTableCellHeader>
-							<StyledTableCellHeader align="right">High</StyledTableCellHeader>
-							<StyledTableCellHeader align="right">Low</StyledTableCellHeader>
+							<StyledTableCellHeader align="left"></StyledTableCellHeader>
+							<StyledTableCellHeader align="center">High</StyledTableCellHeader>
+							<StyledTableCellHeader align="center">Low</StyledTableCellHeader>
 						</TableRow>
 					</TableHead>
 					<TableBody>
@@ -38,9 +38,9 @@ const Forecast = (props) => {
 								<StyledTableCell component="th" scope="row">
 									{formatDate(row.date)}
 								</StyledTableCell>
-								<StyledTableCell align="center"><Image src={row.day.condition.icon}/></StyledTableCell>
-								<StyledTableCell align="right"> {row.day.maxtemp_f}&deg; </StyledTableCell>
-								<StyledTableCell align="right"> {row.day.mintemp_f}&deg; </StyledTableCell>
+								<StyledTableCell align="left"><Image src={row.day.condition.icon}/></StyledTableCell>
+								<StyledTableCell align="center"> {Math.round(row.day.maxtemp_f)}&deg; </StyledTableCell>
+								<StyledTableCell align="center"> {Math.round(row.day.mintemp_f)}&deg; </StyledTableCell>
 							</TableRow>
 						))}
 					</TableBody>
@@ -52,7 +52,8 @@ const Forecast = (props) => {
 
 const Container = styled(Card)`
 	&& {
-		padding: 12px;
+		padding-left: 12px;
+		padding-right: 12px;
 		margin-top: 36px;
 		margin-left: 10%;
 		margin-right: 10%;

@@ -35,7 +35,7 @@ const App = () => {
   }
 
   if (isLoading) {
-    return <div>Loading...</div>
+    return <Typography variant="h6">Loading...</Typography>
   }
 
   return (
@@ -44,7 +44,7 @@ const App = () => {
         <NavBar>
           <Typography variant="h6">Weather</Typography>
           <Search>
-            <Input type="text" placeholder="Search" autoFocus onKeyDown={getSearchValue} />
+            <Input type="text" placeholder="Search" fullWidth autoFocus onKeyDown={getSearchValue} />
           </Search>
         </NavBar>
       </AppBar>
@@ -61,13 +61,13 @@ const Container = styled.div`
 `
 
 const NavBar = styled(Toolbar)`
-  color: #BCCCDC;
-  background-color: #334E68;
+    color: #BCCCDC;
+    background-color: #334E68;
 `
 
 const Search = styled.div`
-  margin-left: 12px;
-  position: relative;
+  width: 100%;
+  margin-left: 24px;
   border-radius: 6px;
 `
 
