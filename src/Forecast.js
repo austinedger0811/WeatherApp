@@ -55,8 +55,8 @@ const Row = (props) => {
 				</StyledTableCell>
 				<StyledTableCell align="left" style={{borderBottom:"none"}}> {formatDate(row.date)} </StyledTableCell>
 				<StyledTableCell align="left" style={{borderBottom:"none"}}> <Image src={row.img} /> </StyledTableCell>
-				<StyledTableCell align="center" style={{borderBottom:"none"}}> {Math.round(row.maxTemp)} </StyledTableCell>
-				<StyledTableCell align="center" style={{borderBottom:"none"}}> {Math.round(row.minTemp)} </StyledTableCell>
+				<StyledTableCell align="center" style={{borderBottom:"none"}}> {Math.round(row.maxTemp)}&deg; </StyledTableCell>
+				<StyledTableCell align="center" style={{borderBottom:"none"}}> {Math.round(row.minTemp)}&deg; </StyledTableCell>
 			</TableRow>
 			<TableRow>
 				<TableCell colSpan={5} style={{borderBottom:"none"}}>
@@ -167,6 +167,7 @@ const StyledTableCell = styled(TableCell)`
 
 const StyledTableCellHeader = styled(TableCell)`
 	&& {
+		border-bottom: none;
 		font-weight: 700;
 		color: #BCCCDC;
 	}

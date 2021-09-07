@@ -43,7 +43,7 @@ const App = () => {
       <AppBar position="static">
         <NavBar>
           <Search>
-            <Input type="text" placeholder="Search" fullWidth autoFocus onKeyDown={getSearchValue} />
+            <Input type="text" placeholder="Search by city or zipcode..." fullWidth autoFocus onKeyDown={getSearchValue} />
           </Search>
         </NavBar>
       </AppBar>
@@ -57,7 +57,6 @@ const Container = styled.div`
   height: 100vh;
   text-align: center;
   background-color: #102A43; 
-  padding-bottom: 20px;
 `
 
 const NavBar = styled(Toolbar)`
