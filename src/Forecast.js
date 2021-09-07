@@ -95,9 +95,10 @@ const Row = (props) => {
 								</TableHead>
 								<TableBody>
 									{row.hourly.map((hour) => (
-											<TableCell key={hour.condition.time} compnent="th" scope="row" style={{borderBottom:"none"}} >
-												{<Image src={hour.condition.icon} />}
-											</TableCell>
+										<TableCell key={hour.condition.time} component="th" scope="row" style={{borderBottom:"none"}}>
+											<div>{<Image src={hour.condition.icon} />}</div>
+											<HourTemp>{Math.round(hour.temp_f)}&deg;</HourTemp>
+										</TableCell>
 									))}
 								</TableBody>
 						</Table>
@@ -125,7 +126,7 @@ const Forecast = (props) => {
 					<Table size="small">
 						<TableHead>
 							<TableRow>
-								<StyledTableCellHeader align="left"></StyledTableCellHeader>
+								<StyledTableCellHeader align="left">Hourly</StyledTableCellHeader>
 								<StyledTableCellHeader align="left">Day</StyledTableCellHeader>
 								<StyledTableCellHeader align="left"></StyledTableCellHeader>
 								<StyledTableCellHeader align="center">High</StyledTableCellHeader>
@@ -161,12 +162,12 @@ const Container = styled(Card)`
 const StyledTableCell = styled(TableCell)`
 	&& {
 		color: #BCCCDC;
+		border-bottom: none;
 	}
 `
 
 const StyledTableCellHeader = styled(TableCell)`
 	&& {
-		border-bottom: none;
 		font-weight: 700;
 		color: #BCCCDC;
 	}
@@ -197,6 +198,12 @@ const StyledKeyboardArrowUpIcon = styled(KeyboardArrowUpIcon)`
 	&& {
 		color: #BCCCDC;
 	}
+`
+
+const HourTemp = styled.div`
+	display: flex;
+	justify-content: center;
+	color: #BCCCDC;
 `
 
 export default Forecast

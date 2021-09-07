@@ -8,7 +8,6 @@ import Forecast from './Forecast'
 import AppBar from '@material-ui/core/AppBar'
 import Toolbar from '@material-ui/core/Toolbar'
 import InputBase from '@material-ui/core/InputBase'
-import Typography from '@material-ui/core/Typography'
 
 const App = () => {
 
@@ -35,7 +34,7 @@ const App = () => {
   }
 
   if (isLoading) {
-    return <Typography variant="h6">Loading...</Typography>
+    return <div></div>
   }
 
   return (
