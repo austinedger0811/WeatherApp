@@ -60,9 +60,6 @@ const Row = (props) => {
 			<TableRow>
 				<TableCell colSpan={5} style={{borderBottom:"none"}}>
 					<Collapse in={open} timeout="auto" unmontOnExit>
-						<Title>
-							<Typography variant='h6' gutterBottom component="div">Hourly Forecast</Typography>
-						</Title>
 						<TableContainer>
 							<Table size="small">
 								<TableHead>
