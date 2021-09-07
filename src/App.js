@@ -3,6 +3,7 @@ import axios from 'axios'
 import styled from 'styled-components'
 
 import Current from './Current'
+import RainChart from './RainChart'
 import Forecast from './Forecast'
 
 import AppBar from '@material-ui/core/AppBar'
@@ -47,6 +48,7 @@ const App = () => {
         </NavBar>
       </AppBar>
       <Current weather={weather} />
+      <RainChart forecast={weather.forecast.forecastday[0].hour} />
       <Forecast forecast={weather.forecast.forecastday} />
     </Container>
   );

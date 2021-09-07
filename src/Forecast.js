@@ -53,7 +53,7 @@ const Row = (props) => {
           </IconButton>
 				</StyledTableCell>
 				<StyledTableCell align="left"> {formatDate(row.date)} </StyledTableCell>
-				<StyledTableCell align="left"> <Image src={row.img} /> </StyledTableCell>
+				<StyledTableCell align="center"> <Image src={row.img} /> </StyledTableCell>
 				<StyledTableCell align="center"> {Math.round(row.maxTemp)}&deg; </StyledTableCell>
 				<StyledTableCell align="center"> {Math.round(row.minTemp)}&deg; </StyledTableCell>
 			</TableRow>
@@ -116,16 +116,16 @@ const Forecast = (props) => {
 	return (
 		<Container>
 			<CardContent>
+				<TableContainer>
 				<Header>
 					<Typography variant='h6'>3-Day Forecast</Typography>
 				</Header>
-				<TableContainer>
 					<Table size="small">
 						<TableHead>
 							<TableRow>
 								<StyledTableCellHeader align="left">Hourly</StyledTableCellHeader>
 								<StyledTableCellHeader align="left">Day</StyledTableCellHeader>
-								<StyledTableCellHeader align="left"></StyledTableCellHeader>
+								<StyledTableCellHeader align="center">test</StyledTableCellHeader>
 								<StyledTableCellHeader align="center">High</StyledTableCellHeader>
 								<StyledTableCellHeader align="center">Low</StyledTableCellHeader>
 							</TableRow>
@@ -165,8 +165,10 @@ const StyledTableCell = styled(TableCell)`
 
 const StyledTableCellHeader = styled(TableCell)`
 	&& {
-		font-weight: 700;
+		font-weight: 800;
 		color: #BCCCDC;
+		border-color: #486581;
+		border-width: .01%;
 	}
 `
 
