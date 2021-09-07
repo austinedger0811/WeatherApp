@@ -125,7 +125,7 @@ const Forecast = (props) => {
 							<TableRow>
 								<StyledTableCellHeader align="left">Hourly</StyledTableCellHeader>
 								<StyledTableCellHeader align="left">Day</StyledTableCellHeader>
-								<StyledTableCellHeader align="center">test</StyledTableCellHeader>
+								<StyledTableCellHeader align="center"></StyledTableCellHeader>
 								<StyledTableCellHeader align="center">High</StyledTableCellHeader>
 								<StyledTableCellHeader align="center">Low</StyledTableCellHeader>
 							</TableRow>
@@ -165,6 +165,7 @@ const StyledTableCell = styled(TableCell)`
 
 const StyledTableCellHeader = styled(TableCell)`
 	&& {
+		font-size: 16px;
 		font-weight: 800;
 		color: #BCCCDC;
 		border-color: #486581;

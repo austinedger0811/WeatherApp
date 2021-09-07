@@ -7,7 +7,7 @@ import CardHeader from '@material-ui/core/CardHeader'
 import CardContent from '@material-ui/core/CardContent'
 import Typography from '@material-ui/core/Typography'
 
-import { LineChart, Line, ResponsiveContainer, XAxis } from 'recharts'
+import { LineChart, Line, ResponsiveContainer, XAxis, Dot } from 'recharts'
 
 const createHour = (value, time) => {
 	return {value, time}
@@ -35,8 +35,8 @@ const RainChart = (props) => {
 				</Header>
 				<ResponsiveContainer width="100%" height={100}>
 					<LineChart data={createDay(forecast)}>
-						<XAxis dataKey="time" domain={['auto', 'auto']} name='Time' tickFormatter={(time) => moment(time).format('HH:mm')}/>
-						<Line type="monotone" dot={false} dataKey="value" stroke="#8884d8" />
+						<XAxis dataKey="time" name='Time' stroke="#BCCCDC" axisLine={false} tickLine={false} style={{ fontFamily: 'Roboto', fontSize: "12px"}} tickFormatter={(time) => moment(time).format('ha')}/>
+						<Line type="monotone" dot={false} dataKey="value" stroke="#8884d8" strokeWidth={2} />
 					</LineChart>
 				</ResponsiveContainer>
 			</CardContent>
