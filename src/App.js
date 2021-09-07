@@ -54,12 +54,10 @@ const App = () => {
 }
 
 const Container = styled.div`
- && {
   height: 100vh;
   text-align: center;
-  color: red;
   background-color: #102A43; 
- }
+  padding-bottom: 20px;
 `
 
 const NavBar = styled(Toolbar)`

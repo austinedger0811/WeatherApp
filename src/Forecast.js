@@ -43,69 +43,66 @@ const formatDate = (date) => {
 const Row = (props) => {
 
 	const { row } = props
-	const hour = moment().format('h')
 	const [open, setOpen] = useState(false)
 
 	return (
 		<React.Fragment>
 			<TableRow>
-				<TableCell style={{borderBottom:"none"}}>
+				<StyledTableCell align="left" style={{borderBottom:"none"}}>
 					<IconButton aria-label="expand row" size="small" onClick={() => setOpen(!open)}>
             {open ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
           </IconButton>
-				</TableCell>
+				</StyledTableCell>
 				<StyledTableCell align="left" style={{borderBottom:"none"}}> {formatDate(row.date)} </StyledTableCell>
 				<StyledTableCell align="left" style={{borderBottom:"none"}}> <Image src={row.img} /> </StyledTableCell>
 				<StyledTableCell align="center" style={{borderBottom:"none"}}> {Math.round(row.maxTemp)} </StyledTableCell>
 				<StyledTableCell align="center" style={{borderBottom:"none"}}> {Math.round(row.minTemp)} </StyledTableCell>
 			</TableRow>
 			<TableRow>
-				<TableCell colSpan={6} style={{borderBottom:"none"}}>
+				<TableCell colSpan={5} style={{borderBottom:"none"}}>
 					<Collapse in={open} timeout="auto" unmontOnExit>
-						<Box margin={0}>
-							<Title>
-								<Typography variant='h6' gutterBottom component="div">Hourly Forecast</Typography>
-							</Title>
-							<TableContainer>
-								<Table size="small">
-									<TableHead>
-										<TableRow>
-											<StyledTableCellHeader>12AM</StyledTableCellHeader>
-											<StyledTableCellHeader>1AM</StyledTableCellHeader>
-											<StyledTableCellHeader>2AM</StyledTableCellHeader>
-											<StyledTableCellHeader>3AM</StyledTableCellHeader>
-											<StyledTableCellHeader>4AM</StyledTableCellHeader>
-											<StyledTableCellHeader>5AM</StyledTableCellHeader>
-											<StyledTableCellHeader>6AM</StyledTableCellHeader>
-											<StyledTableCellHeader>7AM</StyledTableCellHeader>
-											<StyledTableCellHeader>8AM</StyledTableCellHeader>
-											<StyledTableCellHeader>9AM</StyledTableCellHeader>
-											<StyledTableCellHeader>10AM</StyledTableCellHeader>
-											<StyledTableCellHeader>11AM</StyledTableCellHeader>
-											<StyledTableCellHeader>12PM</StyledTableCellHeader>
-											<StyledTableCellHeader>1PM</StyledTableCellHeader>
-											<StyledTableCellHeader>2PM</StyledTableCellHeader>
-											<StyledTableCellHeader>3PM</StyledTableCellHeader>
-											<StyledTableCellHeader>4PM</StyledTableCellHeader>
-											<StyledTableCellHeader>5PM</StyledTableCellHeader>
-											<StyledTableCellHeader>6PM</StyledTableCellHeader>
-											<StyledTableCellHeader>7PM</StyledTableCellHeader>
-											<StyledTableCellHeader>8PM</StyledTableCellHeader>
-											<StyledTableCellHeader>9PM</StyledTableCellHeader>
-											<StyledTableCellHeader>10PM</StyledTableCellHeader>
-											<StyledTableCellHeader>11PM</StyledTableCellHeader>
-										</TableRow>
-									</TableHead>
-									<TableBody>
-										{row.hourly.map((hour) => (
-												<TableCell key={hour.temp_f} compnent="th" scope="row" style={{borderBottom:"none"}} >
-													{<Image src={hour.condition.icon} />}
-												</TableCell>
-										))}
-									</TableBody>
-							</Table>
-							</TableContainer>
-						</Box>
+						<Title>
+							<Typography variant='h6' gutterBottom component="div">Hourly Forecast</Typography>
+						</Title>
+						<TableContainer>
+							<Table size="small">
+								<TableHead>
+									<TableRow>
+										<StyledTableCellHeader>12AM</StyledTableCellHeader>
+										<StyledTableCellHeader>1AM</StyledTableCellHeader>
+										<StyledTableCellHeader>2AM</StyledTableCellHeader>
+										<StyledTableCellHeader>3AM</StyledTableCellHeader>
+										<StyledTableCellHeader>4AM</StyledTableCellHeader>
+										<StyledTableCellHeader>5AM</StyledTableCellHeader>
+										<StyledTableCellHeader>6AM</StyledTableCellHeader>
+										<StyledTableCellHeader>7AM</StyledTableCellHeader>
+										<StyledTableCellHeader>8AM</StyledTableCellHeader>
+										<StyledTableCellHeader>9AM</StyledTableCellHeader>
+										<StyledTableCellHeader>10AM</StyledTableCellHeader>
+										<StyledTableCellHeader>11AM</StyledTableCellHeader>
+										<StyledTableCellHeader>12PM</StyledTableCellHeader>
+										<StyledTableCellHeader>1PM</StyledTableCellHeader>
+										<StyledTableCellHeader>2PM</StyledTableCellHeader>
+										<StyledTableCellHeader>3PM</StyledTableCellHeader>
+										<StyledTableCellHeader>4PM</StyledTableCellHeader>
+										<StyledTableCellHeader>5PM</StyledTableCellHeader>
+										<StyledTableCellHeader>6PM</StyledTableCellHeader>
+										<StyledTableCellHeader>7PM</StyledTableCellHeader>
+										<StyledTableCellHeader>8PM</StyledTableCellHeader>
+										<StyledTableCellHeader>9PM</StyledTableCellHeader>
+										<StyledTableCellHeader>10PM</StyledTableCellHeader>
+										<StyledTableCellHeader>11PM</StyledTableCellHeader>
+									</TableRow>
+								</TableHead>
+								<TableBody>
+									{row.hourly.map((hour) => (
+											<TableCell key={hour.condition.time} compnent="th" scope="row" style={{borderBottom:"none"}} >
+												{<Image src={hour.condition.icon} />}
+											</TableCell>
+									))}
+								</TableBody>
+						</Table>
+						</TableContainer>
 					</Collapse>
 				</TableCell>
 			</TableRow>
@@ -116,7 +113,6 @@ const Row = (props) => {
 const Forecast = (props) => {
 
 	const { forecast } = props
-
 	
 	const rows = createRows(forecast)
 
@@ -130,7 +126,7 @@ const Forecast = (props) => {
 					<Table size="small">
 						<TableHead>
 							<TableRow>
-								<StyledTableCellHeader></StyledTableCellHeader>
+								<StyledTableCellHeader align="left"></StyledTableCellHeader>
 								<StyledTableCellHeader align="left">Day</StyledTableCellHeader>
 								<StyledTableCellHeader align="left"></StyledTableCellHeader>
 								<StyledTableCellHeader align="center">High</StyledTableCellHeader>
@@ -157,6 +153,7 @@ const Container = styled(Card)`
 		margin-left: 10%;
 		margin-right: 10%;
 		border-radius: 20px;
+		margin-bottom: 20px;
 		color: #BCCCDC;
 		background-color: #243B53;
 	}
