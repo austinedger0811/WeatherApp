@@ -12,7 +12,6 @@ import TableRow from '@material-ui/core/TableRow'
 import TableCell from '@material-ui/core/TableCell'
 import TableBody from '@material-ui/core/TableBody'
 import Collapse from '@material-ui/core/Collapse'
-import Box from '@material-ui/core/Box'
 import IconButton from '@material-ui/core/IconButton';
 import KeyboardArrowDownIcon from '@material-ui/icons/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
@@ -48,15 +47,15 @@ const Row = (props) => {
 	return (
 		<React.Fragment>
 			<TableRow>
-				<StyledTableCell align="left" style={{borderBottom:"none"}}>
+				<StyledTableCell align="left">
 					<IconButton aria-label="expand row" size="small" onClick={() => setOpen(!open)}>
-            {open ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
+            {open ? <StyledKeyboardArrowUpIcon /> : <StyledKeyboardArrowDownIcon />}
           </IconButton>
 				</StyledTableCell>
-				<StyledTableCell align="left" style={{borderBottom:"none"}}> {formatDate(row.date)} </StyledTableCell>
-				<StyledTableCell align="left" style={{borderBottom:"none"}}> <Image src={row.img} /> </StyledTableCell>
-				<StyledTableCell align="center" style={{borderBottom:"none"}}> {Math.round(row.maxTemp)}&deg; </StyledTableCell>
-				<StyledTableCell align="center" style={{borderBottom:"none"}}> {Math.round(row.minTemp)}&deg; </StyledTableCell>
+				<StyledTableCell align="left"> {formatDate(row.date)} </StyledTableCell>
+				<StyledTableCell align="left"> <Image src={row.img} /> </StyledTableCell>
+				<StyledTableCell align="center"> {Math.round(row.maxTemp)}&deg; </StyledTableCell>
+				<StyledTableCell align="center"> {Math.round(row.minTemp)}&deg; </StyledTableCell>
 			</TableRow>
 			<TableRow>
 				<TableCell colSpan={5} style={{borderBottom:"none"}}>
@@ -183,6 +182,18 @@ const Header = styled.div`
 `
 
 const Title = styled.div`
+	&& {
+		color: #BCCCDC;
+	}
+`
+
+const StyledKeyboardArrowDownIcon = styled(KeyboardArrowDownIcon)`
+	&& {
+		color: #BCCCDC;
+	}
+`
+
+const StyledKeyboardArrowUpIcon = styled(KeyboardArrowUpIcon)`
 	&& {
 		color: #BCCCDC;
 	}
