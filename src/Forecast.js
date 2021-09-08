@@ -12,9 +12,10 @@ import TableRow from '@material-ui/core/TableRow'
 import TableCell from '@material-ui/core/TableCell'
 import TableBody from '@material-ui/core/TableBody'
 import Collapse from '@material-ui/core/Collapse'
-import IconButton from '@material-ui/core/IconButton';
-import KeyboardArrowDownIcon from '@material-ui/icons/KeyboardArrowDown';
-import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
+import Box from '@material-ui/core/Box'
+import IconButton from '@material-ui/core/IconButton'
+import KeyboardArrowDownIcon from '@material-ui/icons/KeyboardArrowDown'
+import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp'
 
 
 const createData = (date, maxTemp, minTemp, img, hourly) => {
@@ -60,46 +61,48 @@ const Row = (props) => {
 			<TableRow>
 				<TableCell colSpan={5} style={{borderBottom:"none"}}>
 					<Collapse in={open} timeout="auto" unmontOnExit>
-						<TableContainer>
-							<Table size="small">
-								<TableHead>
-									<TableRow>
-										<StyledTableCellHeader>12AM</StyledTableCellHeader>
-										<StyledTableCellHeader>1AM</StyledTableCellHeader>
-										<StyledTableCellHeader>2AM</StyledTableCellHeader>
-										<StyledTableCellHeader>3AM</StyledTableCellHeader>
-										<StyledTableCellHeader>4AM</StyledTableCellHeader>
-										<StyledTableCellHeader>5AM</StyledTableCellHeader>
-										<StyledTableCellHeader>6AM</StyledTableCellHeader>
-										<StyledTableCellHeader>7AM</StyledTableCellHeader>
-										<StyledTableCellHeader>8AM</StyledTableCellHeader>
-										<StyledTableCellHeader>9AM</StyledTableCellHeader>
-										<StyledTableCellHeader>10AM</StyledTableCellHeader>
-										<StyledTableCellHeader>11AM</StyledTableCellHeader>
-										<StyledTableCellHeader>12PM</StyledTableCellHeader>
-										<StyledTableCellHeader>1PM</StyledTableCellHeader>
-										<StyledTableCellHeader>2PM</StyledTableCellHeader>
-										<StyledTableCellHeader>3PM</StyledTableCellHeader>
-										<StyledTableCellHeader>4PM</StyledTableCellHeader>
-										<StyledTableCellHeader>5PM</StyledTableCellHeader>
-										<StyledTableCellHeader>6PM</StyledTableCellHeader>
-										<StyledTableCellHeader>7PM</StyledTableCellHeader>
-										<StyledTableCellHeader>8PM</StyledTableCellHeader>
-										<StyledTableCellHeader>9PM</StyledTableCellHeader>
-										<StyledTableCellHeader>10PM</StyledTableCellHeader>
-										<StyledTableCellHeader>11PM</StyledTableCellHeader>
-									</TableRow>
-								</TableHead>
-								<TableBody>
-									{row.hourly.map((hour) => (
-										<TableCell key={hour.condition.time} component="th" scope="row" style={{borderBottom:"none"}}>
-											<div>{<Image src={hour.condition.icon} />}</div>
-											<HourTemp>{Math.round(hour.temp_f)}&deg;</HourTemp>
-										</TableCell>
-									))}
-								</TableBody>
-						</Table>
-						</TableContainer>
+						<Box width="69vw">
+							<TableContainer>
+								<Table size="small">
+									<TableHead>
+										<TableRow>
+											<StyledTableCellCaption>12am</StyledTableCellCaption>
+											<StyledTableCellCaption>1am</StyledTableCellCaption>
+											<StyledTableCellCaption>2am</StyledTableCellCaption>
+											<StyledTableCellCaption>3am</StyledTableCellCaption>
+											<StyledTableCellCaption>4am</StyledTableCellCaption>
+											<StyledTableCellCaption>5am</StyledTableCellCaption>
+											<StyledTableCellCaption>6am</StyledTableCellCaption>
+											<StyledTableCellCaption>7am</StyledTableCellCaption>
+											<StyledTableCellCaption>8am</StyledTableCellCaption>
+											<StyledTableCellCaption>9am</StyledTableCellCaption>
+											<StyledTableCellCaption>10am</StyledTableCellCaption>
+											<StyledTableCellCaption>11am</StyledTableCellCaption>
+											<StyledTableCellCaption>12pm</StyledTableCellCaption>
+											<StyledTableCellCaption>1pm</StyledTableCellCaption>
+											<StyledTableCellCaption>2pm</StyledTableCellCaption>
+											<StyledTableCellCaption>3pm</StyledTableCellCaption>
+											<StyledTableCellCaption>4pm</StyledTableCellCaption>
+											<StyledTableCellCaption>5pm</StyledTableCellCaption>
+											<StyledTableCellCaption>6pm</StyledTableCellCaption>
+											<StyledTableCellCaption>7pm</StyledTableCellCaption>
+											<StyledTableCellCaption>8pm</StyledTableCellCaption>
+											<StyledTableCellCaption>9pm</StyledTableCellCaption>
+											<StyledTableCellCaption>10pm</StyledTableCellCaption>
+											<StyledTableCellCaption>11pm</StyledTableCellCaption>
+										</TableRow>
+									</TableHead>
+									<TableBody>
+										{row.hourly.map((hour) => (
+											<TableCell key={hour.condition.time} component="th" scope="row" style={{borderBottom:"none"}}>
+												<div>{<Image src={hour.condition.icon} />}</div>
+												<HourTemp>{Math.round(hour.temp_f)}&deg;</HourTemp>
+											</TableCell>
+										))}
+									</TableBody>
+								</Table>
+							</TableContainer>
+						</Box>
 					</Collapse>
 				</TableCell>
 			</TableRow>
@@ -117,25 +120,25 @@ const Forecast = (props) => {
 		<Container>
 			<CardContent>
 				<TableContainer>
-				<Header>
-					<Typography variant='h6'>3-Day Forecast</Typography>
-				</Header>
-					<Table size="small">
-						<TableHead>
-							<TableRow>
-								<StyledTableCellHeader align="left">Hourly</StyledTableCellHeader>
-								<StyledTableCellHeader align="left">Day</StyledTableCellHeader>
-								<StyledTableCellHeader align="center"></StyledTableCellHeader>
-								<StyledTableCellHeader align="center">High</StyledTableCellHeader>
-								<StyledTableCellHeader align="center">Low</StyledTableCellHeader>
-							</TableRow>
-						</TableHead>
-						<TableBody>
-							{rows.map((row) => (
-								<Row key={row.date} row={row} />
-							))}
-						</TableBody>
-					</Table>
+					<Header>
+						<Typography variant='h6'>3-Day Forecast</Typography>
+					</Header>
+						<Table size="small">
+							<TableHead>
+								<TableRow>
+									<StyledTableCellHeader align="left">Hourly</StyledTableCellHeader>
+									<StyledTableCellHeader align="left">Day</StyledTableCellHeader>
+									<StyledTableCellHeader align="center"></StyledTableCellHeader>
+									<StyledTableCellHeader align="center">High</StyledTableCellHeader>
+									<StyledTableCellHeader align="center">Low</StyledTableCellHeader>
+								</TableRow>
+							</TableHead>
+							<TableBody>
+								{rows.map((row) => (
+									<Row key={row.date} row={row} />
+								))}
+							</TableBody>
+						</Table>
 					</TableContainer>
 			</CardContent>
 		</Container>
@@ -167,6 +170,16 @@ const StyledTableCellHeader = styled(TableCell)`
 	&& {
 		font-size: 16px;
 		font-weight: 800;
+		color: #BCCCDC;
+		border-color: #486581;
+		border-width: .01%;
+	}
+`
+
+const StyledTableCellCaption = styled(TableCell)`
+	&& {
+		font-size: 14px;
+		font-weight: 400;
 		color: #BCCCDC;
 		border-color: #486581;
 		border-width: .01%;

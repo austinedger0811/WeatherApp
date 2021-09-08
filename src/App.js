@@ -55,7 +55,6 @@ const App = () => {
 }
 
 const Container = styled.div`
-  height: 100vh;
   text-align: center;
   background-color: #102A43; 
 `
