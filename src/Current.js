@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import moment from 'moment'
 
@@ -12,11 +12,26 @@ const formatDate = (date) => {
 	return moment(date).format("ddd, MMM D")
 }
 
+const getColorArray = (temp) => {
+	let arr
+	temp = Math.round(temp)
+	if (temp < 0) {
+		arr = tempScheme[0]
+	} else if (temp > 110) {
+		arr = tempScheme[110]
+	} else {
+		arr = tempScheme[temp]
+	}
+	return arr
+}
+
 const Current = (props) => {
 
 	const { weather } = props
 
-	var color = tempScheme[weather.current.temp_f]
+	const color = {
+		color: `rgb(${getColorArray(weather.current.temp_f)})`
+	}
 
 	return (
 		<Container>
@@ -27,7 +42,7 @@ const Current = (props) => {
 				</Header>
 				<Weather>
 					<Typography variant='h5'> {props.weather.current.condition.text} </Typography>
-					<Typography variant='h2' style={{"color": `rgb(${color})`}}> {Math.round(props.weather.current.temp_f)}&deg; </Typography>
+					<Typography variant='h2' key={props.weather.location.name} style={color}> {Math.round(props.weather.current.temp_f)}&deg; </Typography>
 				</Weather>
 				<Location>
 					<Typography variant='body1'> {props.weather.location.name}, {props.weather.location.region}</Typography>

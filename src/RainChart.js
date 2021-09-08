@@ -3,11 +3,10 @@ import styled from 'styled-components'
 import moment from 'moment'
 
 import Card from '@material-ui/core/Card'
-import CardHeader from '@material-ui/core/CardHeader'
 import CardContent from '@material-ui/core/CardContent'
 import Typography from '@material-ui/core/Typography'
 
-import { LineChart, Line, ResponsiveContainer, XAxis, Dot } from 'recharts'
+import { LineChart, Line, ResponsiveContainer, XAxis, } from 'recharts'
 
 const createHour = (value, time) => {
 	return {value, time}
@@ -24,8 +23,6 @@ const createDay = (forecast) => {
 const RainChart = (props) => {
 
 	const { forecast } = props
-
-	console.log(createDay(forecast))
 
 	return (
 		<Container>

@@ -54,7 +54,7 @@ const Row = (props) => {
           </IconButton>
 				</StyledTableCell>
 				<StyledTableCell align="left"> {formatDate(row.date)} </StyledTableCell>
-				<StyledTableCell align="center"> <Image src={row.img} /> </StyledTableCell>
+				<StyledTableCell align="left"> <Image src={row.img} /> </StyledTableCell>
 				<StyledTableCell align="center"> {Math.round(row.maxTemp)}&deg; </StyledTableCell>
 				<StyledTableCell align="center"> {Math.round(row.minTemp)}&deg; </StyledTableCell>
 			</TableRow>
@@ -93,8 +93,8 @@ const Row = (props) => {
 										</TableRow>
 									</TableHead>
 									<TableBody>
-										{row.hourly.map((hour) => (
-											<TableCell key={hour.condition.time} component="th" scope="row" style={{borderBottom:"none"}}>
+										{row.hourly.map((hour, index) => (
+											<TableCell key={index} component="th" scope="row" style={{borderBottom:"none"}}>
 												<div>{<Image src={hour.condition.icon} />}</div>
 												<HourTemp>{Math.round(hour.temp_f)}&deg;</HourTemp>
 											</TableCell>
@@ -128,7 +128,7 @@ const Forecast = (props) => {
 								<TableRow>
 									<StyledTableCellHeader align="left">Hourly</StyledTableCellHeader>
 									<StyledTableCellHeader align="left">Day</StyledTableCellHeader>
-									<StyledTableCellHeader align="center"></StyledTableCellHeader>
+									<StyledTableCellHeader align="left"></StyledTableCellHeader>
 									<StyledTableCellHeader align="center">High</StyledTableCellHeader>
 									<StyledTableCellHeader align="center">Low</StyledTableCellHeader>
 								</TableRow>
@@ -193,12 +193,6 @@ const Image = styled.img`
 const Header = styled.div`
 	display: flex;
 	justify-content: space-between;
-`
-
-const Title = styled.div`
-	&& {
-		color: #BCCCDC;
-	}
 `
 
 const StyledKeyboardArrowDownIcon = styled(KeyboardArrowDownIcon)`
