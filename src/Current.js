@@ -16,11 +16,7 @@ const Current = (props) => {
 
 	const { weather } = props
 
-	const [color, setColor] = useState([])
-
-	useEffect(() => {
-		setColor(tempScheme[weather.current.temp_f])
-	}, [weather])
+	var color = tempScheme[weather.current.temp_f]
 
 	return (
 		<Container>

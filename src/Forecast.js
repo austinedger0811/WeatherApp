@@ -195,6 +195,12 @@ const Header = styled.div`
 	justify-content: space-between;
 `
 
+const Title = styled.div`
+	&& {
+		color: #BCCCDC;
+	}
+`
+
 const StyledKeyboardArrowDownIcon = styled(KeyboardArrowDownIcon)`
 	&& {
 		color: #BCCCDC;
