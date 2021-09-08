@@ -61,7 +61,7 @@ const Row = (props) => {
 			<TableRow>
 				<TableCell colSpan={5} style={{borderBottom:"none"}}>
 					<Collapse in={open} timeout="auto" unmontOnExit>
-						<Box width="69vw">
+						<Box width="70vw">
 							<TableContainer>
 								<Table size="small">
 									<TableHead>

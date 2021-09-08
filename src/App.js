@@ -17,7 +17,7 @@ const App = () => {
 
   const [searchValue, setSearchValue] = useState('New York')
   const [weather, setWeather] = useState(null)
-  const [isLoading, setLoading] = useState(true);
+  const [isLoading, setLoading] = useState(true)
 
   useEffect(() => {
     axios.get(`${baseURL}forecast.json?key=${key}&q=${searchValue}&days=3&aqi=no&alerts=no`).then((response) => {
