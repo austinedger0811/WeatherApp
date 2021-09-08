@@ -5,6 +5,7 @@ import styled from 'styled-components'
 import Current from './Current'
 import RainChart from './RainChart'
 import Forecast from './Forecast'
+import tempScheme from './tempScheme'
 
 import AppBar from '@material-ui/core/AppBar'
 import Toolbar from '@material-ui/core/Toolbar'
@@ -18,10 +19,12 @@ const App = () => {
   const [searchValue, setSearchValue] = useState('New York')
   const [weather, setWeather] = useState(null)
   const [isLoading, setLoading] = useState(true)
+  const [color, setColor] = useState(null)
 
   useEffect(() => {
     axios.get(`${baseURL}forecast.json?key=${key}&q=${searchValue}&days=3&aqi=no&alerts=no`).then((response) => {
       setWeather(response.data)
+      setColor(tempScheme[response.data.current.temp_f])
       setLoading(false)
       console.log(response.data)
     })
@@ -47,7 +50,7 @@ const App = () => {
           </Search>
         </NavBar>
       </AppBar>
-      <Current weather={weather} />
+      <Current weather={weather} color={color} />
       <RainChart forecast={weather.forecast.forecastday[0].hour} />
       <Forecast forecast={weather.forecast.forecastday} />
     </Container>
