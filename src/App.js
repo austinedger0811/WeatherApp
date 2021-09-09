@@ -23,7 +23,6 @@ const App = () => {
     axios.get(`${baseURL}forecast.json?key=${key}&q=${searchValue}&days=3&aqi=no&alerts=no`).then((response) => {
       setWeather(response.data)
       setLoading(false)
-      console.log(response.data)
     })
   }, [searchValue, key])
 

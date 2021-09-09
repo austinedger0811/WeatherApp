@@ -1,5 +1,7 @@
 {
   "projects": {
-    "default": "weather-app-austin-edger"
-  }
+    "default": "weather-app-austin-edger",
+    "dev": "weather-app-austin-edger"
+  },
+  "targets": {}
 }
